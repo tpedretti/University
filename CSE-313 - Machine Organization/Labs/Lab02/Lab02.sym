@@ -1,0 +1,14 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	ABSX                    3025
+//	ABSY                    3026
+//	EQ                      301B
+//	GR                      301D
+//	LE                      301F
+//	SKIP                    3020
+//	SUB                     3024
+//	X                       3022
+//	Y                       3023
+//	Z                       3027
+//	ZPX                     300A
+//	ZPY                     300F

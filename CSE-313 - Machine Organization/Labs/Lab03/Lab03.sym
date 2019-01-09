@@ -1,0 +1,9 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	BEGIN                   0300
+//	DAYS                    033C
+//	DISPLAY                 0310
+//	ENDGAME                 0314
+//	LF                      0382
+//	LOOP                    030C
+//	PROMPT                  0315
