@@ -1,0 +1,61 @@
+#lang racket
+;Anonymous Functions
+((lambda (x y) (+ x y))1 2)
+((lambda (x) (/ 2(* 10(+ x x))))10)
+((lambda x x)1 2 3)
+
+(define y 15)
+((lambda (x y) (+ x y))1 y)
+
+((lambda (xx x1) (* (- xx x1)(- xx x1)))2 -5)
+
+;Closures Functions
+(define (make-addr x) (lambda (y)(+ y x)))
+(define adder (make-addr 3))
+(adder 4)
+
+(define (isInt x) (lambda (y) (integer? (+ x y))))
+(define myInt (isInt 564))
+(myInt 3)
+
+(define (evenNum x) (lambda (y) (integer? (/ (* x y) 2))))
+(define isEven (evenNum y))
+(isEven 2)
+(isEven 7)
+
+(define (make-adder x) (lambda (y) (integer? (/ (+ x y) 2))))
+(let ([two-adder (make-adder 2)]
+      [ten-adder (make-adder 10)])
+     (writeln (two-adder 4))
+     (writeln (ten-adder 101)))
+
+(define (isString x) (lambda (y) (if(string? y) (writeln "It is a string") (writeln "It ins't a string"))))
+(define testCase (isString y))
+(testCase "T")
+(testCase 4)
+
+;Currying Function
+(define (multiply x y) (* x y))
+((curry multiply) 2)
+(((curry multiply) 2) 3)
+
+(define (isMultiEven  x y) (integer? (/ (+ x y) 2)))
+(((curry isMultiEven)2) 3)
+
+(define ((addCurr a) b) (+ a b))
+((addCurr 3) 2)
+
+(define ((myTri x) z) (lambda (y) (+ x z y)))
+(define triNum ((myTri 2)2))
+(triNum 2)
+
+(define (myString x y) (string-append x y))
+(((curry myString) "Hello") " World!")
+
+;Partial Application
+(define (newMultiply x y) (* x y))
+(define curried_multiply (curry newMultiply))
+(curried_multiply)
+((curried_multiply) 2)
+(((curried_multiply) 2) 3)
+
